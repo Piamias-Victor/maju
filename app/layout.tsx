@@ -101,11 +101,11 @@ export default function RootLayout({
       </head>
       <body className={`${inter.variable} font-sans antialiased bg-white text-neutral-900 selection:bg-primary-500/20`}>
         <CartProvider>
-        <AnimatedBackground />
-        <div className="relative z-10">
-          {children}
-        </div>
-        <CartModal />
+          <AnimatedBackground />
+          <div className="relative z-10">
+            {children}
+          </div>
+          <CartModal />
         </CartProvider>
         
         {/* JSON-LD Structured Data */}
