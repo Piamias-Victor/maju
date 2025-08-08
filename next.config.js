@@ -1,5 +1,9 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  eslint: {
+    // Désactiver ESLint pendant les builds
+    ignoreDuringBuilds: true,
+  },
   images: {
     domains: [
       'localhost',

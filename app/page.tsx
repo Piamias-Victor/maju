@@ -86,10 +86,6 @@ const FAQ = () => (
           {
             q: 'Le bol passe-t-il au lave-vaisselle ?',
             a: 'Absolument ! Compatible lave-vaisselle et micro-ondes, sans BPA.'
-          },
-          {
-            q: 'Quelle est la garantie ?',
-            a: 'Satisfaction garantie avec notre service client français.'
           }
         ].map((faq, i) => (
           <details key={i} className="bg-white/90 backdrop-blur-sm rounded-2xl p-6 border border-white/20 shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer">
