@@ -86,10 +86,35 @@ export const CartModal: React.FC = () => {
     }
   };
 
-  // Paiement fictif
-  const handleFinalizeOrder = () => {
-    alert('🎉 Commande simulée avec succès !\n\nEn production, redirection vers Stripe Checkout.');
-    closeModal();
+  // Paiement Stripe réel
+  const handleFinalizeOrder = async () => {
+    try {
+      // Appel à l'API checkout
+      const response = await fetch('/api/checkout', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          color: selectedColor,
+          quantity: 1,
+        }),
+      });
+
+      if (!response.ok) {
+        throw new Error('Erreur lors de la création de la session');
+      }
+
+      const { url } = await response.json();
+      
+      // Redirection vers Stripe Checkout
+      if (url) {
+        window.location.href = url;
+      }
+    } catch (error) {
+      console.error('Erreur:', error);
+      alert('Erreur lors du paiement. Veuillez réessayer.');
+    }
   };
 
   return (
@@ -153,6 +178,9 @@ export const CartModal: React.FC = () => {
                         >
                           ⚡ Continuer ma commande
                         </Button>
+                        <p className="text-xs text-primary-600 text-center font-medium">
+                          👆 Cliquez ici pour commander rapidement
+                        </p>
                       </div>
 
                       {/* Timer urgent */}
@@ -172,7 +200,7 @@ export const CartModal: React.FC = () => {
                           </div>
                           
                           <div className="flex-1 min-w-0">
-                            <h3 className="font-semibold text-lg text-neutral-900">Bol MAJU</h3>
+                            <h3 className="font-semibold text-lg text-neutral-900">Bol JUMA</h3>
                             <p className="text-neutral-600 text-sm">
                               Quantité : <span className="font-medium">1</span> (limite par commande)
                             </p>
@@ -196,7 +224,7 @@ export const CartModal: React.FC = () => {
                       <div className="bg-neutral-50 rounded-2xl p-4 sm:p-6 border">
                         <div className="space-y-3 sm:space-y-4">
                           <div className="flex justify-between items-center">
-                            <span className="text-neutral-700">Bol MAJU x1</span>
+                            <span className="text-neutral-700">Bol JUMA x1</span>
                             <PriceDisplay
                               currentPrice={39.99}
                               originalPrice={59.99}
@@ -281,7 +309,7 @@ export const CartModal: React.FC = () => {
                         </h3>
                         <div className="space-y-2 text-sm">
                           <div className="flex justify-between">
-                            <span>Bol MAJU {selectedColor}</span>
+                            <span>Bol JUMA {selectedColor}</span>
                             <span>39,99€</span>
                           </div>
                           <div className="flex justify-between text-green-600">
@@ -308,7 +336,7 @@ export const CartModal: React.FC = () => {
                           onClick={handleFinalizeOrder}
                           className="shadow-2xl hover:shadow-glow text-lg"
                         >
-                          🛒 Finaliser ma commande
+                          🛒 Payer avec Stripe
                         </Button>
 
                         {/* Bouton retour */}

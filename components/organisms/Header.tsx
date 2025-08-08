@@ -36,7 +36,7 @@ export const Header: React.FC<HeaderProps> = ({ className }) => {
         <div className="flex items-center justify-center gap-2 max-w-6xl mx-auto">
           <span className="animate-pulse">🔥</span>
           <span className="hidden sm:inline">
-            <strong>Offre limitée :</strong> Économisez 10€ sur votre Bol MAJU -
+            <strong>Offre limitée :</strong> Économisez 10€ sur votre Bol JUMA -
           </span>
           <span className="sm:hidden">
             <strong>Offre limitée :</strong>
@@ -61,19 +61,9 @@ export const Header: React.FC<HeaderProps> = ({ className }) => {
             
             {/* Logo et titre */}
             <div className="flex items-center gap-3 sm:gap-4">
-              <div className="flex-shrink-0">
-                <Image
-                  src="/images/logo-MAJU-placeholder.svg"
-                  alt="Logo Bol MAJU"
-                  width={40}
-                  height={40}
-                  className="w-8 h-8 sm:w-10 sm:h-10"
-                  priority
-                />
-              </div>
               <div className="flex flex-col">
                 <h1 className="text-lg sm:text-xl lg:text-2xl font-bold text-neutral-900 leading-tight">
-                  Bol MAJU
+                  Bol JUMA
                 </h1>
                 <p className="text-xs sm:text-sm text-neutral-600 hidden sm:block">
                   L&apos;allié santé par des nutritionnistes

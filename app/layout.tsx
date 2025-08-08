@@ -26,10 +26,10 @@ export const viewport: Viewport = {
 }
 
 export const metadata: Metadata = {
-  title: 'Bol maju - L\'allié santé conçu par des nutritionnistes | Made in France',
-  description: 'Découvrez le Bol maju, l\'ustensile révolutionnaire pour manger équilibré sans effort. 3 compartiments modulables, accompagnement personnalisé, 93% de satisfaction. Made in France.',
+  title: 'Bol juma - L\'allié santé conçu par des nutritionnistes | Made in France',
+  description: 'Découvrez le Bol juma, l\'ustensile révolutionnaire pour manger équilibré sans effort. 3 compartiments modulables, accompagnement personnalisé, 93% de satisfaction. Made in France.',
   keywords: [
-    'bol maju',
+    'bol juma',
     'nutrition france',
     'repas équilibrés',
     'portions contrôlées',
@@ -40,15 +40,15 @@ export const metadata: Metadata = {
     'compartiments modulables',
     'sans BPA'
   ],
-  authors: [{ name: 'Bol maju' }],
-  creator: 'Bol maju',
-  publisher: 'Bol maju',
+  authors: [{ name: 'Bol juma' }],
+  creator: 'Bol juma',
+  publisher: 'Bol juma',
   formatDetection: {
     email: false,
     address: false,
     telephone: false,
   },
-  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'https://bol-maju.com'),
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'https://bol-juma.fr'),
   alternates: {
     canonical: '/',
   },
@@ -56,24 +56,17 @@ export const metadata: Metadata = {
     type: 'website',
     locale: 'fr_FR',
     url: '/',
-    siteName: 'Bol maju',
-    title: 'Bol maju - L\'allié santé conçu par des nutritionnistes',
+    siteName: 'Bol juma',
+    title: 'Bol juma - L\'allié santé conçu par des nutritionnistes',
     description: 'L\'ustensile révolutionnaire pour manger équilibré sans effort. 3 compartiments modulables, Made in France, 93% de satisfaction.',
     images: [
       {
-        url: '/images/bol-maju-og.jpg',
+        url: '/images/bol-juma-og.jpg',
         width: 1200,
         height: 630,
-        alt: 'Bol maju - Ustensile nutrition avec compartiments modulables',
+        alt: 'Bol juma - Ustensile nutrition avec compartiments modulables',
       },
     ],
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'Bol maju - L\'allié santé conçu par des nutritionnistes',
-    description: 'L\'ustensile révolutionnaire pour manger équilibré sans effort. Made in France.',
-    images: ['/images/bol-maju-twitter.jpg'],
-    creator: '@bolmaju',
   },
   robots: {
     index: true,
@@ -122,23 +115,23 @@ export default function RootLayout({
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@type": "Product",
-              "name": "Bol maju",
+              "name": "Bol juma",
               "description": "L'ustensile révolutionnaire pour manger équilibré sans effort. 3 compartiments modulables, Made in France.",
               "brand": {
                 "@type": "Brand",
-                "name": "maju"
+                "name": "juma"
               },
               "category": "Ustensile de cuisine",
               "offers": {
                 "@type": "Offer",
-                "url": process.env.NEXT_PUBLIC_SITE_URL || 'https://bol-maju.com',
+                "url": process.env.NEXT_PUBLIC_SITE_URL || 'https://bol-juma.fr',
                 "priceCurrency": "EUR",
                 "price": "39.99",
                 "priceValidUntil": "2025-12-31",
                 "availability": "https://schema.org/InStock",
                 "seller": {
                   "@type": "Organization",
-                  "name": "Bol maju"
+                  "name": "Bol juma"
                 }
               },
               "aggregateRating": {
@@ -160,7 +153,7 @@ export default function RootLayout({
                     "@type": "Person",
                     "name": "Marie L."
                   },
-                  "reviewBody": "Révolutionnaire ! Plus besoin de peser mes aliments, le Bol maju fait tout pour moi."
+                  "reviewBody": "Révolutionnaire ! Plus besoin de peser mes aliments, le Bol juma fait tout pour moi."
                 }
               ]
             })

@@ -1,22 +1,25 @@
 // app/page.tsx
-// Page principale du site Bol maju - Landing page optimisée conversion
+// Page principale du site Bol JUMA - Landing page optimisée conversion
 // Structure: Header + Hero + Features + Reviews + FAQ + CTA
 // Optimisations: mobile-first, SEO, performance, lazy loading
+
+'use client';
 
 import { Header } from '@/components/organisms/Header';
 import { ProductHero } from '@/components/organisms/ProductHero';
 import { Image } from '@/components/atoms/Image';
+import { useCart } from '@/contexts/CartContext';
 
 // Composants à implémenter (placeholders pour structure)
 const ProductFeatures = () => (
   <section className="py-20 px-4">
     <div className="max-w-6xl mx-auto text-center">
-      <h2 className="text-3xl font-bold mb-6">Pourquoi choisir le Bol maju ?</h2>
+      <h2 className="text-3xl font-bold mb-6">Pourquoi choisir le Bol JUMA ?</h2>
       
       {/* Description explicative */}
       <div className="max-w-4xl mx-auto mb-12">
         <p className="text-lg text-neutral-600 leading-relaxed">
-          Le Bol maju est bien plus qu&apos;un simple ustensile de cuisine. C&apos;est un système révolutionnaire conçu par des nutritionnistes professionnels pour vous accompagner vers une alimentation équilibrée, sans contrainte ni calcul compliqué. Grâce à ses <strong>3 compartiments modulables</strong> avec réglettes brevetées, vous obtenez automatiquement les bonnes portions pour chaque type d&apos;aliment : légumes, féculents et protéines.
+          Le Bol JUMA est bien plus qu&apos;un simple ustensile de cuisine. C&apos;est un système révolutionnaire conçu par des nutritionnistes professionnels pour vous accompagner vers une alimentation équilibrée, sans contrainte ni calcul compliqué. Grâce à ses <strong>3 compartiments modulables</strong> avec réglettes brevetées, vous obtenez automatiquement les bonnes portions pour chaque type d&apos;aliment : légumes, féculents et protéines.
         </p>
         <p className="text-base text-neutral-500 mt-4">
           Fabriqué en France avec des matériaux alimentaires recyclés (PP et SEBS), garanti sans BPA ni phtalates, compatible micro-ondes et lave-vaisselle.
@@ -27,7 +30,7 @@ const ProductFeatures = () => (
         {[
           { title: 'Simplicité exceptionnelle', desc: 'Plus besoin de peser ni compter les calories' },
           { title: 'Confiance et sécurité', desc: 'Conçu par des experts nutritionnistes français' },
-          { title: 'Application gratuite incluse', desc: 'Recettes, conseils et suivi personnalisé' }
+          { title: 'Guide nutritionnel inclus', desc: 'Conseils d\'experts et recettes équilibrées' }
         ].map((feature, i) => (
           <div key={i} className="bg-white/90 backdrop-blur-sm rounded-2xl p-6 border border-white/20 shadow-lg hover:shadow-xl transition-all duration-300">
             <h3 className="text-xl font-semibold mb-4">{feature.title}</h3>
@@ -42,7 +45,7 @@ const ProductFeatures = () => (
 const ReviewsList = () => (
   <section className="py-20 px-4">
     <div className="max-w-6xl mx-auto text-center">
-      <h2 className="text-3xl font-bold mb-12">Ils ont adopté le Bol maju</h2>
+      <h2 className="text-3xl font-bold mb-12">Ils ont adopté le Bol JUMA</h2>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
         {[
           { name: 'Marie L.', rating: 5, text: 'Révolutionnaire ! Plus besoin de peser mes aliments.' },
@@ -74,7 +77,7 @@ const FAQ = () => (
         {[
           {
             q: 'Comment fonctionne le système de compartiments ?',
-            a: 'Le Bol maju dispose de 3 compartiments modulables avec un système de réglettes breveté.'
+            a: 'Le Bol JUMA dispose de 3 compartiments modulables avec un système de réglettes breveté.'
           },
           {
             q: 'Est-ce vraiment Made in France ?',
@@ -86,7 +89,7 @@ const FAQ = () => (
           },
           {
             q: 'Quelle est la garantie ?',
-            a: '30 jours satisfait ou remboursé + garantie fabricant.'
+            a: 'Satisfaction garantie avec notre service client français.'
           }
         ].map((faq, i) => (
           <details key={i} className="bg-white/90 backdrop-blur-sm rounded-2xl p-6 border border-white/20 shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer">
@@ -99,31 +102,38 @@ const FAQ = () => (
   </section>
 );
 
-const FinalCTA = () => (
-  <section id="checkout-section" className="py-20 px-4">
-    <div className="max-w-4xl mx-auto text-center">
-      <h2 className="text-4xl font-bold mb-6">Prêt à transformer vos repas ?</h2>
-      <p className="text-xl text-neutral-600 mb-8">
-        Rejoignez les +55 000 utilisateurs qui ont simplifié leur alimentation
-      </p>
-      
-      <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 shadow-2xl border border-white/20 max-w-md mx-auto">
-        <div className="flex items-center justify-center gap-4 mb-6">
-          <span className="text-2xl line-through text-neutral-400">59,99€</span>
-          <span className="text-4xl font-bold text-primary-500">39,99€</span>
-        </div>
-        
-        <button className="btn-primary w-full mb-4 text-lg py-4">
-          🛒 Commander maintenant
-        </button>
-        
-        <p className="text-sm text-neutral-600">
-          ✅ Livraison gratuite • ✅ Garantie 30 jours • ✅ Paiement sécurisé
+const FinalCTA = () => {
+  const { openModal } = useCart();
+  
+  return (
+    <section id="checkout-section" className="py-20 px-4">
+      <div className="max-w-4xl mx-auto text-center">
+        <h2 className="text-4xl font-bold mb-6">Prêt à transformer vos repas ?</h2>
+        <p className="text-xl text-neutral-600 mb-8">
+          Rejoignez les +55 000 utilisateurs qui ont simplifié leur alimentation
         </p>
+        
+        <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 shadow-2xl border border-white/20 max-w-md mx-auto">
+          <div className="flex items-center justify-center gap-4 mb-6">
+            <span className="text-2xl line-through text-neutral-400">59,99€</span>
+            <span className="text-4xl font-bold text-primary-500">39,99€</span>
+          </div>
+          
+          <button 
+            className="btn-primary w-full mb-4 text-lg py-4"
+            onClick={openModal}
+          >
+            🛒 Commander maintenant
+          </button>
+          
+          <p className="text-sm text-neutral-600">
+            ✅ Livraison gratuite • ✅ Paiement sécurisé • ✅ Made in France
+          </p>
+        </div>
       </div>
-    </div>
-  </section>
-);
+    </section>
+  );
+};
 
 export default function HomePage() {
   
@@ -180,7 +190,7 @@ const HowItWorks = () => (
         <div className="order-1 lg:order-2">
           <Image
             src="https://www.maju-nutrition.com/cdn/shop/files/maju-utilisation-bol-rose-etapes.jpg"
-            alt="Étapes d'utilisation du Bol maju"
+            alt="Étapes d'utilisation du Bol JUMA"
             width={500}
             height={400}
             className="w-full h-auto rounded-2xl"
@@ -198,7 +208,7 @@ const BenefitsSection = () => (
         <div>
           <Image
             src="https://www.maju-nutrition.com/cdn/shop/files/maju-bol-rose-manger-juste-benefices.jpg"
-            alt="Bénéfices du Bol maju"
+            alt="Bénéfices du Bol JUMA"
             width={500}
             height={400}
             className="w-full h-auto rounded-2xl"
@@ -253,7 +263,7 @@ const CalorieControlSection = () => (
         <div>
           <Image
             src="https://www.maju-nutrition.com/cdn/shop/files/maju-bol-rose-quantite-adaptees-calories.jpg"
-            alt="Contrôle des calories avec Bol maju"
+            alt="Contrôle des calories avec Bol JUMA"
             width={500}
             height={400}
             className="w-full h-auto rounded-2xl"
@@ -296,7 +306,7 @@ const ReviewsListUpdated = () => (
         <div>
           <Image
             src="https://www.maju-nutrition.com/cdn/shop/files/maju-bol-avis-93-pourcents-reussite-fond-rose.jpg"
-            alt="93% de réussite Bol maju"
+            alt="93% de réussite Bol JUMA"
             width={500}
             height={400}
             className="w-full h-auto rounded-2xl"

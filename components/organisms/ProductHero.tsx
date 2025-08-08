@@ -111,7 +111,7 @@ export const ProductHero: React.FC = () => {
             <div className="relative max-w-lg mx-auto lg:mx-0 lg:ml-auto">
               <Image
                 src="https://www.maju-nutrition.com/cdn/shop/files/maju-bol-rose-explication-compartiments.jpg"
-                alt="Bol MAJU rose - Explication des 3 compartiments modulables pour portions équilibrées"
+                alt="Bol JUMA rose - Explication des 3 compartiments modulables pour portions équilibrées"
                 width={500}
                 height={500}
                 className="w-full h-auto max-w-full"

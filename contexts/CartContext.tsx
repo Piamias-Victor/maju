@@ -84,8 +84,8 @@ export const CartProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
 
   const addToCart = useCallback((color: 'rose' | 'bleu') => {
     const newItem: CartItem = {
-      id: 'bol-maju',
-      name: `Bol maju - ${color === 'rose' ? 'Rose Vif' : 'Bleu'}`,
+      id: 'bol-juma',
+      name: `Bol juma - ${color === 'rose' ? 'Rose Vif' : 'Bleu'}`,
       price: 39.99,
       color,
       quantity: 1,
