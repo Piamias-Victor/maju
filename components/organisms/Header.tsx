@@ -1,6 +1,6 @@
 // components/organisms/Header.tsx
-// Header avec logo, titre et bandeau promo
-// Optimisations: sticky header, glass effect, CTA visible
+// Header avec logo, titre, bandeau promo et timer intégré
+// Optimisations: sticky header, glass effect, CTA visible, panier intégré
 // Mobile-first: responsive design
 
 'use client';
@@ -9,6 +9,8 @@ import { useState, useEffect } from 'react';
 import { clsx } from 'clsx';
 import { Image } from '@/components/atoms/Image';
 import { Button } from '@/components/atoms/Button';
+import { TimerDisplay } from '@/components/atoms/TimerDisplay';
+import { useCart } from '@/contexts/CartContext';
 
 interface HeaderProps {
   className?: string;
@@ -16,6 +18,7 @@ interface HeaderProps {
 
 export const Header: React.FC<HeaderProps> = ({ className }) => {
   const [isScrolled, setIsScrolled] = useState(false);
+  const { openModal } = useCart();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -28,13 +31,17 @@ export const Header: React.FC<HeaderProps> = ({ className }) => {
 
   return (
     <>
-      {/* Bandeau promo en haut - STICKY */}
+      {/* Bandeau promo en haut - STICKY avec Timer */}
       <div className="sticky top-0 bg-gradient-to-r from-primary-500 to-secondary-500 text-white py-2 px-4 text-center text-sm font-medium z-50">
         <div className="flex items-center justify-center gap-2 max-w-6xl mx-auto">
           <span className="animate-pulse">🔥</span>
-          <span>
-            <strong>Offre limitée :</strong> Économisez 10€ sur votre Bol MAJU - Plus que quelques jours !
+          <span className="hidden sm:inline">
+            <strong>Offre limitée :</strong> Économisez 10€ sur votre Bol MAJU -
           </span>
+          <span className="sm:hidden">
+            <strong>Offre limitée :</strong>
+          </span>
+          <TimerDisplay variant="banner" showIcon={false} />
           <span className="animate-pulse">🔥</span>
         </div>
       </div>
@@ -42,7 +49,7 @@ export const Header: React.FC<HeaderProps> = ({ className }) => {
       {/* Header principal */}
       <header
         className={clsx(
-          'sticky top-[50px] md:top-[30px] z-40 transition-all duration-300',
+          'sticky top-[50px] md:top-[40px] z-40 transition-all duration-300',
           isScrolled
             ? 'backdrop-blur-md bg-white/90 shadow-lg border-b border-white/20'
             : 'bg-transparent',
@@ -91,11 +98,7 @@ export const Header: React.FC<HeaderProps> = ({ className }) => {
                 variant="primary"
                 size="md"
                 className="hidden sm:inline-flex"
-                onClick={() => {
-                  document.getElementById('checkout-section')?.scrollIntoView({
-                    behavior: 'smooth'
-                  });
-                }}
+                onClick={openModal}
               >
                 Commander maintenant
               </Button>
@@ -105,11 +108,7 @@ export const Header: React.FC<HeaderProps> = ({ className }) => {
                 variant="primary"
                 size="sm"
                 className="sm:hidden text-xs px-3 py-2"
-                onClick={() => {
-                  document.getElementById('checkout-section')?.scrollIntoView({
-                    behavior: 'smooth'
-                  });
-                }}
+                onClick={openModal}
               >
                 Commander
               </Button>

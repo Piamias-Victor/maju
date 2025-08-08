@@ -11,13 +11,10 @@ import { Button } from '@/components/atoms/Button';
 import { Image } from '@/components/atoms/Image';
 import { PriceDisplay } from '@/components/molecules/PriceDisplay';
 import { ColorSelector } from '@/components/molecules/ColorSelector';
+import { useCart } from '@/contexts/CartContext';
 
 export const ProductHero: React.FC = () => {
-  const scrollToCheckout = () => {
-    document.getElementById('checkout-section')?.scrollIntoView({
-      behavior: 'smooth'
-    });
-  };
+  const { openModal } = useCart();
 
   return (
     <section className="relative min-h-screen flex items-center py-12 sm:py-20 px-4 sm:px-6 lg:px-8">
@@ -68,7 +65,7 @@ export const ProductHero: React.FC = () => {
                 variant="primary"
                 size="xl"
                 className="shadow-2xl hover:shadow-glow"
-                onClick={scrollToCheckout}
+                onClick={openModal}
               >
                 🛒 Commander maintenant
               </Button>
@@ -82,11 +79,21 @@ export const ProductHero: React.FC = () => {
               </div>
             </div>
 
-            {/* Social proof */}
+            {/* Social proof avec vraies photos */}
             <div className="mt-8 flex items-center justify-center lg:justify-start gap-4 text-sm text-neutral-600">
               <div className="flex -space-x-2">
-                {[1,2,3,4,5].map(i => (
-                  <div key={i} className="w-8 h-8 bg-gradient-to-br from-primary-400 to-secondary-400 rounded-full border-2 border-white" />
+                {[
+                  "https://images.unsplash.com/photo-1494790108755-2616b612b786?w=32&h=32&fit=crop&crop=face",
+                  "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=32&h=32&fit=crop&crop=face", 
+                  "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=32&h=32&fit=crop&crop=face",
+                  "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=32&h=32&fit=crop&crop=face",
+                  "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=32&h=32&fit=crop&crop=face"
+                ].map((photo, i) => (
+                  <div 
+                    key={i} 
+                    className="w-8 h-8 rounded-full border-2 border-white bg-cover bg-center"
+                    style={{ backgroundImage: `url(${photo})` }}
+                  />
                 ))}
               </div>
               <span>+55 000 utilisateurs satisfaits</span>
@@ -101,8 +108,9 @@ export const ProductHero: React.FC = () => {
             className="order-2 lg:order-2"
           >
             <div className="relative max-w-lg mx-auto lg:mx-0 lg:ml-auto">
+            <div className="relative max-w-lg mx-auto lg:mx-0 lg:ml-auto">
               <Image
-                src="https://www.MAJU-nutrition.com/cdn/shop/files/MAJU-bol-rose-explication-compartiments.jpg"
+                src="https://www.maju-nutrition.com/cdn/shop/files/maju-bol-rose-explication-compartiments.jpg"
                 alt="Bol MAJU rose - Explication des 3 compartiments modulables pour portions équilibrées"
                 width={500}
                 height={500}
@@ -115,6 +123,7 @@ export const ProductHero: React.FC = () => {
               <div className="absolute top-2 sm:top-4 right-2 sm:right-4 bg-primary-500 text-white px-2 sm:px-3 py-1 rounded-full text-xs sm:text-sm font-semibold shadow-lg">
                 Nouveau !
               </div>
+            </div>
             </div>
           </motion.div>
 

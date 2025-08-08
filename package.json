@@ -1,10 +1,10 @@
 {
-  "name": "bol-MAJU",
+  "name": "bol-maju",
   "version": "0.1.0",
   "private": true,
-  "description": "Bol MAJU - L'allié santé conçu par des nutritionnistes. Site e-commerce Next.js ultra-performant.",
+  "description": "Bol maju - L'allié santé conçu par des nutritionnistes. Site e-commerce Next.js ultra-performant.",
   "keywords": [
-    "bol MAJU",
+    "bol maju",
     "nutrition",
     "équilibré",
     "diététique",

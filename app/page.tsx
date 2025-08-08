@@ -1,5 +1,5 @@
 // app/page.tsx
-// Page principale du site Bol MAJU - Landing page optimisée conversion
+// Page principale du site Bol maju - Landing page optimisée conversion
 // Structure: Header + Hero + Features + Reviews + FAQ + CTA
 // Optimisations: mobile-first, SEO, performance, lazy loading
 
@@ -11,12 +11,12 @@ import { Image } from '@/components/atoms/Image';
 const ProductFeatures = () => (
   <section className="py-20 px-4">
     <div className="max-w-6xl mx-auto text-center">
-      <h2 className="text-3xl font-bold mb-6">Pourquoi choisir le Bol MAJU ?</h2>
+      <h2 className="text-3xl font-bold mb-6">Pourquoi choisir le Bol maju ?</h2>
       
       {/* Description explicative */}
       <div className="max-w-4xl mx-auto mb-12">
         <p className="text-lg text-neutral-600 leading-relaxed">
-          Le Bol MAJU est bien plus qu&apos;un simple ustensile de cuisine. C&apos;est un système révolutionnaire conçu par des nutritionnistes professionnels pour vous accompagner vers une alimentation équilibrée, sans contrainte ni calcul compliqué. Grâce à ses <strong>3 compartiments modulables</strong> avec réglettes brevetées, vous obtenez automatiquement les bonnes portions pour chaque type d&apos;aliment : légumes, féculents et protéines.
+          Le Bol maju est bien plus qu&apos;un simple ustensile de cuisine. C&apos;est un système révolutionnaire conçu par des nutritionnistes professionnels pour vous accompagner vers une alimentation équilibrée, sans contrainte ni calcul compliqué. Grâce à ses <strong>3 compartiments modulables</strong> avec réglettes brevetées, vous obtenez automatiquement les bonnes portions pour chaque type d&apos;aliment : légumes, féculents et protéines.
         </p>
         <p className="text-base text-neutral-500 mt-4">
           Fabriqué en France avec des matériaux alimentaires recyclés (PP et SEBS), garanti sans BPA ni phtalates, compatible micro-ondes et lave-vaisselle.
@@ -42,7 +42,7 @@ const ProductFeatures = () => (
 const ReviewsList = () => (
   <section className="py-20 px-4">
     <div className="max-w-6xl mx-auto text-center">
-      <h2 className="text-3xl font-bold mb-12">Ils ont adopté le Bol MAJU</h2>
+      <h2 className="text-3xl font-bold mb-12">Ils ont adopté le Bol maju</h2>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
         {[
           { name: 'Marie L.', rating: 5, text: 'Révolutionnaire ! Plus besoin de peser mes aliments.' },
@@ -74,7 +74,7 @@ const FAQ = () => (
         {[
           {
             q: 'Comment fonctionne le système de compartiments ?',
-            a: 'Le Bol MAJU dispose de 3 compartiments modulables avec un système de réglettes breveté.'
+            a: 'Le Bol maju dispose de 3 compartiments modulables avec un système de réglettes breveté.'
           },
           {
             q: 'Est-ce vraiment Made in France ?',
@@ -126,6 +126,7 @@ const FinalCTA = () => (
 );
 
 export default function HomePage() {
+  
   return (
     <main className="min-h-screen relative">
       <Header />
@@ -178,8 +179,8 @@ const HowItWorks = () => (
         </div>
         <div className="order-1 lg:order-2">
           <Image
-            src="https://www.MAJU-nutrition.com/cdn/shop/files/MAJU-utilisation-bol-rose-etapes.jpg"
-            alt="Étapes d'utilisation du Bol MAJU"
+            src="https://www.maju-nutrition.com/cdn/shop/files/maju-utilisation-bol-rose-etapes.jpg"
+            alt="Étapes d'utilisation du Bol maju"
             width={500}
             height={400}
             className="w-full h-auto rounded-2xl"
@@ -196,8 +197,8 @@ const BenefitsSection = () => (
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
         <div>
           <Image
-            src="https://www.MAJU-nutrition.com/cdn/shop/files/MAJU-bol-rose-manger-juste-benefices.jpg"
-            alt="Bénéfices du Bol MAJU"
+            src="https://www.maju-nutrition.com/cdn/shop/files/maju-bol-rose-manger-juste-benefices.jpg"
+            alt="Bénéfices du Bol maju"
             width={500}
             height={400}
             className="w-full h-auto rounded-2xl"
@@ -251,8 +252,8 @@ const CalorieControlSection = () => (
         </div>
         <div>
           <Image
-            src="https://www.MAJU-nutrition.com/cdn/shop/files/MAJU-bol-rose-quantite-adaptees-calories.jpg"
-            alt="Contrôle des calories avec Bol MAJU"
+            src="https://www.maju-nutrition.com/cdn/shop/files/maju-bol-rose-quantite-adaptees-calories.jpg"
+            alt="Contrôle des calories avec Bol maju"
             width={500}
             height={400}
             className="w-full h-auto rounded-2xl"
@@ -294,8 +295,8 @@ const ReviewsListUpdated = () => (
         </div>
         <div>
           <Image
-            src="https://www.MAJU-nutrition.com/cdn/shop/files/MAJU-bol-avis-93-pourcents-reussite-fond-rose.jpg"
-            alt="93% de réussite Bol MAJU"
+            src="https://www.maju-nutrition.com/cdn/shop/files/maju-bol-avis-93-pourcents-reussite-fond-rose.jpg"
+            alt="93% de réussite Bol maju"
             width={500}
             height={400}
             className="w-full h-auto rounded-2xl"

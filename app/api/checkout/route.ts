@@ -37,14 +37,14 @@ export async function POST(request: NextRequest) {
 
     // Configuration du produit
     const productData = {
-      name: `Bol MAJU - ${body.color === 'rose' ? 'Rose Vif' : 'Bleu'}`,
+      name: `Bol maju - ${body.color === 'rose' ? 'Rose Vif' : 'Bleu'}`,
       description: 'L\'ustensile révolutionnaire pour manger équilibré sans effort. 3 compartiments modulables, Made in France.',
       images: [
-        `${process.env.NEXT_PUBLIC_SITE_URL}/images/bol-MAJU-${body.color}-600x600.jpg`
+        `${process.env.NEXT_PUBLIC_SITE_URL}/images/bol-maju-${body.color}-600x600.jpg`
       ],
       metadata: {
         color: body.color,
-        product_type: 'bol-MAJU',
+        product_type: 'bol-maju',
         made_in: 'france',
       }
     };
@@ -97,7 +97,7 @@ export async function POST(request: NextRequest) {
       metadata: {
         color: body.color,
         quantity: body.quantity.toString(),
-        product: 'bol-MAJU',
+        product: 'bol-maju',
       },
     });
 

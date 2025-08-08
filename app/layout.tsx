@@ -7,6 +7,8 @@ import type { Metadata, Viewport } from 'next'
 import { Inter } from 'next/font/google'
 import './globals.css'
 import { AnimatedBackground } from '@/components/atoms/AnimatedBackground'
+import { CartProvider } from '@/contexts/CartContext'
+import { CartModal } from '@/components/organisms/CartModal'
 
 const inter = Inter({ 
   subsets: ['latin'],
@@ -24,10 +26,10 @@ export const viewport: Viewport = {
 }
 
 export const metadata: Metadata = {
-  title: 'Bol MAJU - L\'allié santé conçu par des nutritionnistes | Made in France',
-  description: 'Découvrez le Bol MAJU, l\'ustensile révolutionnaire pour manger équilibré sans effort. 3 compartiments modulables, accompagnement personnalisé, 93% de satisfaction. Made in France.',
+  title: 'Bol maju - L\'allié santé conçu par des nutritionnistes | Made in France',
+  description: 'Découvrez le Bol maju, l\'ustensile révolutionnaire pour manger équilibré sans effort. 3 compartiments modulables, accompagnement personnalisé, 93% de satisfaction. Made in France.',
   keywords: [
-    'bol MAJU',
+    'bol maju',
     'nutrition france',
     'repas équilibrés',
     'portions contrôlées',
@@ -38,15 +40,15 @@ export const metadata: Metadata = {
     'compartiments modulables',
     'sans BPA'
   ],
-  authors: [{ name: 'Bol MAJU' }],
-  creator: 'Bol MAJU',
-  publisher: 'Bol MAJU',
+  authors: [{ name: 'Bol maju' }],
+  creator: 'Bol maju',
+  publisher: 'Bol maju',
   formatDetection: {
     email: false,
     address: false,
     telephone: false,
   },
-  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'https://bol-MAJU.com'),
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'https://bol-maju.com'),
   alternates: {
     canonical: '/',
   },
@@ -54,24 +56,24 @@ export const metadata: Metadata = {
     type: 'website',
     locale: 'fr_FR',
     url: '/',
-    siteName: 'Bol MAJU',
-    title: 'Bol MAJU - L\'allié santé conçu par des nutritionnistes',
+    siteName: 'Bol maju',
+    title: 'Bol maju - L\'allié santé conçu par des nutritionnistes',
     description: 'L\'ustensile révolutionnaire pour manger équilibré sans effort. 3 compartiments modulables, Made in France, 93% de satisfaction.',
     images: [
       {
-        url: '/images/bol-MAJU-og.jpg',
+        url: '/images/bol-maju-og.jpg',
         width: 1200,
         height: 630,
-        alt: 'Bol MAJU - Ustensile nutrition avec compartiments modulables',
+        alt: 'Bol maju - Ustensile nutrition avec compartiments modulables',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Bol MAJU - L\'allié santé conçu par des nutritionnistes',
+    title: 'Bol maju - L\'allié santé conçu par des nutritionnistes',
     description: 'L\'ustensile révolutionnaire pour manger équilibré sans effort. Made in France.',
-    images: ['/images/bol-MAJU-twitter.jpg'],
-    creator: '@bolMAJU',
+    images: ['/images/bol-maju-twitter.jpg'],
+    creator: '@bolmaju',
   },
   robots: {
     index: true,
@@ -105,10 +107,13 @@ export default function RootLayout({
         <link rel="manifest" href="/manifest.json" />
       </head>
       <body className={`${inter.variable} font-sans antialiased bg-white text-neutral-900 selection:bg-primary-500/20`}>
+        <CartProvider>
         <AnimatedBackground />
         <div className="relative z-10">
           {children}
         </div>
+        <CartModal />
+        </CartProvider>
         
         {/* JSON-LD Structured Data */}
         <script
@@ -117,23 +122,23 @@ export default function RootLayout({
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@type": "Product",
-              "name": "Bol MAJU",
+              "name": "Bol maju",
               "description": "L'ustensile révolutionnaire pour manger équilibré sans effort. 3 compartiments modulables, Made in France.",
               "brand": {
                 "@type": "Brand",
-                "name": "MAJU"
+                "name": "maju"
               },
               "category": "Ustensile de cuisine",
               "offers": {
                 "@type": "Offer",
-                "url": process.env.NEXT_PUBLIC_SITE_URL || 'https://bol-MAJU.com',
+                "url": process.env.NEXT_PUBLIC_SITE_URL || 'https://bol-maju.com',
                 "priceCurrency": "EUR",
                 "price": "39.99",
                 "priceValidUntil": "2025-12-31",
                 "availability": "https://schema.org/InStock",
                 "seller": {
                   "@type": "Organization",
-                  "name": "Bol MAJU"
+                  "name": "Bol maju"
                 }
               },
               "aggregateRating": {
@@ -155,7 +160,7 @@ export default function RootLayout({
                     "@type": "Person",
                     "name": "Marie L."
                   },
-                  "reviewBody": "Révolutionnaire ! Plus besoin de peser mes aliments, le Bol MAJU fait tout pour moi."
+                  "reviewBody": "Révolutionnaire ! Plus besoin de peser mes aliments, le Bol maju fait tout pour moi."
                 }
               ]
             })

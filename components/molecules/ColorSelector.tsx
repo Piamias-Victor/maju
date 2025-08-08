@@ -127,7 +127,7 @@ export const ColorSelector: React.FC<ColorSelectorProps> = ({
 
       {/* Texte d'aide */}
       <p className="text-xs text-neutral-500 mt-1">
-        Choisissez votre couleur préférée pour personnaliser votre Bol MAJU
+        Choisissez votre couleur préférée pour personnaliser votre Bol maju
       </p>
     </div>
   );
